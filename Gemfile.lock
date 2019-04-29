@@ -245,6 +245,8 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.3)
       nio4r (~> 2.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.9)
     rack-oauth2 (1.12.0)
       activesupport
@@ -402,6 +404,7 @@ DEPENDENCIES
   mysql2
   omniauth_openid_connect
   puma (~> 4.3.0)
+  pundit
   rails (~> 6.0.2)
   rails-i18n
   rubocop
