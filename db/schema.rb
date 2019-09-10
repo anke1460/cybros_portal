@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_030924) do
+ActiveRecord::Schema.define(version: 2019_09_10_003058) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -160,6 +160,24 @@ ActiveRecord::Schema.define(version: 2019_08_29_030924) do
     t.bigint "owner_id"
     t.index ["owner_id"], name: "index_pending_questions_on_owner_id"
     t.index ["user_id"], name: "index_pending_questions_on_user_id"
+  end
+
+  create_table "role_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "role_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_role_users_on_role_id"
+    t.index ["user_id"], name: "index_role_users_on_user_id"
+  end
+
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "role_name"
+    t.boolean "report_viewer"
+    t.boolean "report_reviewer"
+    t.boolean "knowledge_maintainer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
