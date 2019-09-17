@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_003058) do
+ActiveRecord::Schema.define(version: 2019_09_17_004930) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 2019_09_10_003058) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "company_name"
+  end
+
+  create_table "direct_question_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "knowledge_id", null: false
+    t.bigint "direct_question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["direct_question_id"], name: "index_direct_question_answers_on_direct_question_id"
+    t.index ["knowledge_id"], name: "index_direct_question_answers_on_knowledge_id"
   end
 
   create_table "direct_questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -247,6 +256,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_003058) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cad_operations", "users"
+  add_foreign_key "direct_question_answers", "direct_questions"
+  add_foreign_key "direct_question_answers", "knowledges"
   add_foreign_key "knowledge_likes", "users"
   add_foreign_key "name_card_applies", "users"
   add_foreign_key "whitelisted_jwts", "users", on_delete: :cascade
