@@ -2673,7 +2673,7 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-echarts@^4.2.1:
+echarts@^4.5.0:
   version "4.6.0"
   resolved "https://registry.npm.taobao.org/echarts/download/echarts-4.6.0.tgz?cache=0&sync_timestamp=1579795582912&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fecharts%2Fdownload%2Fecharts-4.6.0.tgz#b5a47a1046cec93ceeef954f9ee54751340558ec"
   integrity sha1-taR6EEbOyTzu75VPnuVHUTQFWOw=
