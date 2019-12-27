@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_021833) do
+ActiveRecord::Schema.define(version: 2019_12_27_013617) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_021833) do
   create_table "knowledges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "category_1"
     t.string "category_2"
-    t.string "question"
+    t.string "question", collation: "utf8_general_ci"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category_3"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_021833) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "cad_session"
     t.boolean "report_view_all"
+    t.boolean "project_map_viewer"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
