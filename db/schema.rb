@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_013617) do
+ActiveRecord::Schema.define(version: 2020_01_13_021223) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,20 @@ ActiveRecord::Schema.define(version: 2019_12_27_013617) do
     t.string "begin_operation"
     t.string "end_operation"
     t.index ["user_id"], name: "index_cad_sessions_on_user_id"
+  end
+
+  create_table "copy_of_business_license_applies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "employee_name"
+    t.string "clerk_code"
+    t.string "belong_company_name"
+    t.string "belong_department_name"
+    t.string "contract_belong_company"
+    t.string "stamp_to_place"
+    t.string "stamp_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_copy_of_business_license_applies_on_user_id"
   end
 
   create_table "department_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -172,6 +186,48 @@ ActiveRecord::Schema.define(version: 2019_12_27_013617) do
     t.index ["user_id"], name: "index_pending_questions_on_user_id"
   end
 
+  create_table "proof_of_employment_applies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "employee_name"
+    t.string "clerk_code"
+    t.string "belong_company_name"
+    t.string "belong_department_name"
+    t.string "contract_belong_company"
+    t.string "stamp_to_place"
+    t.string "stamp_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_proof_of_employment_applies_on_user_id"
+  end
+
+  create_table "proof_of_income_applies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "employee_name"
+    t.string "clerk_code"
+    t.string "belong_company_name"
+    t.string "belong_department_name"
+    t.string "contract_belong_company"
+    t.string "stamp_to_place"
+    t.string "stamp_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_proof_of_income_applies_on_user_id"
+  end
+
+  create_table "public_rental_housing_applies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "employee_name"
+    t.string "clerk_code"
+    t.string "belong_company_name"
+    t.string "belong_department_name"
+    t.string "contract_belong_company"
+    t.string "stamp_to_place"
+    t.string "stamp_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_public_rental_housing_applies_on_user_id"
+  end
+
   create_table "role_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "role_id", null: false
     t.bigint "user_id", null: false
@@ -261,9 +317,12 @@ ActiveRecord::Schema.define(version: 2019_12_27_013617) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cad_operations", "users"
+  add_foreign_key "copy_of_business_license_applies", "users"
   add_foreign_key "direct_question_answers", "direct_questions"
   add_foreign_key "direct_question_answers", "knowledges"
   add_foreign_key "knowledge_likes", "users"
   add_foreign_key "name_card_applies", "users"
+  add_foreign_key "proof_of_income_applies", "users"
+  add_foreign_key "public_rental_housing_applies", "users"
   add_foreign_key "whitelisted_jwts", "users", on_delete: :cascade
 end
