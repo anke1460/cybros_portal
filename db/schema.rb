@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_021223) do
+ActiveRecord::Schema.define(version: 2020_02_13_064725) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -78,6 +78,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_021223) do
     t.string "stamp_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "begin_task_id"
+    t.boolean "backend_in_processing"
+    t.text "bpm_message"
     t.index ["user_id"], name: "index_copy_of_business_license_applies_on_user_id"
   end
 
@@ -197,6 +200,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_021223) do
     t.string "stamp_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "begin_task_id"
+    t.boolean "backend_in_processing"
+    t.text "bpm_message"
     t.index ["user_id"], name: "index_proof_of_employment_applies_on_user_id"
   end
 
@@ -211,6 +217,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_021223) do
     t.string "stamp_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "begin_task_id"
+    t.boolean "backend_in_processing"
+    t.text "bpm_message"
     t.index ["user_id"], name: "index_proof_of_income_applies_on_user_id"
   end
 
@@ -225,6 +234,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_021223) do
     t.string "stamp_comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "begin_task_id"
+    t.boolean "backend_in_processing"
+    t.text "bpm_message"
     t.index ["user_id"], name: "index_public_rental_housing_applies_on_user_id"
   end
 
