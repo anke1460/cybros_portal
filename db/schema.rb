@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_014050) do
+ActiveRecord::Schema.define(version: 2020_02_17_022503) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -81,6 +81,9 @@ ActiveRecord::Schema.define(version: 2020_02_17_014050) do
     t.string "begin_task_id"
     t.boolean "backend_in_processing"
     t.text "bpm_message"
+    t.string "belong_company_code"
+    t.string "belong_department_code"
+    t.string "contract_belong_company_code"
     t.index ["user_id"], name: "index_copy_of_business_license_applies_on_user_id"
   end
 
@@ -205,6 +208,9 @@ ActiveRecord::Schema.define(version: 2020_02_17_014050) do
     t.string "begin_task_id"
     t.boolean "backend_in_processing"
     t.text "bpm_message"
+    t.string "belong_company_code"
+    t.string "belong_department_code"
+    t.string "contract_belong_company_code"
     t.index ["user_id"], name: "index_proof_of_employment_applies_on_user_id"
   end
 
@@ -222,6 +228,9 @@ ActiveRecord::Schema.define(version: 2020_02_17_014050) do
     t.string "begin_task_id"
     t.boolean "backend_in_processing"
     t.text "bpm_message"
+    t.string "belong_company_code"
+    t.string "belong_department_code"
+    t.string "contract_belong_company_code"
     t.index ["user_id"], name: "index_proof_of_income_applies_on_user_id"
   end
 
@@ -239,6 +248,9 @@ ActiveRecord::Schema.define(version: 2020_02_17_014050) do
     t.string "begin_task_id"
     t.boolean "backend_in_processing"
     t.text "bpm_message"
+    t.string "belong_company_code"
+    t.string "belong_department_code"
+    t.string "contract_belong_company_code"
     t.index ["user_id"], name: "index_public_rental_housing_applies_on_user_id"
   end
 
