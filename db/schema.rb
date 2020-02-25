@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_012959) do
+ActiveRecord::Schema.define(version: 2020_02_25_023912) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
@@ -194,7 +194,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_012959) do
     t.string "belong_department_name"
     t.string "belong_department_code"
     t.string "application_class"
-    t.string "application_subclass_list"
     t.string "stamp_to_place"
     t.string "stamp_comment"
     t.string "begin_task_id"
@@ -203,6 +202,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_012959) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "application_subclasses", default: "--- []\n"
     t.index ["user_id"], name: "index_official_stamp_usage_applies_on_user_id"
   end
 
