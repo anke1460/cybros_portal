@@ -20,16 +20,16 @@ class User < ApplicationRecord
   has_many :proof_of_income_applies, class_name: 'Personal::ProofOfIncomeApply', dependent: :restrict_with_error
   has_many :public_rental_housing_applies, class_name: 'Personal::PublicRentalHousingApply', dependent: :restrict_with_error
   has_many :name_card_applies, dependent: :restrict_with_error
-  has_many :pending_questions, class_name: "Company::PendingQuestion", dependent: :restrict_with_error
-  has_many :owing_pending_questions, class_name: "Company::PendingQuestion", foreign_key: :owner_id
-  has_one :knowledge_like, class_name: "Company::KnowledgeLike"
-  has_many :cad_sessions, class_name: "Cad::CadSession", dependent: :destroy
-  has_many :cad_operations, class_name: "Cad::CadOperation", dependent: :destroy
+  has_many :pending_questions, class_name: 'Company::PendingQuestion', dependent: :restrict_with_error
+  has_many :owing_pending_questions, class_name: 'Company::PendingQuestion', foreign_key: :owner_id
+  has_one :knowledge_like, class_name: 'Company::KnowledgeLike'
+  has_many :cad_sessions, class_name: 'Cad::CadSession', dependent: :destroy
+  has_many :cad_operations, class_name: 'Cad::CadOperation', dependent: :destroy
 
   def self.details_mapping
     @_username_details_mapping ||= all.joins(department_users: :department)
-      .select(:email, :chinese_name, :desk_phone, "departments.name", "departments.company_name").reduce({}) do |h, u|
-      user_name = u.email.split("@")[0]
+      .select(:email, :chinese_name, :desk_phone, 'departments.name', 'departments.company_name').reduce({}) do |h, u|
+      user_name = u.email.split('@')[0]
       h[user_name] ||= "#{Bi::OrgShortName.company_short_names.fetch(u.company_name, u.company_name)}-#{u.name}-#{u.chinese_name}-#{u.desk_phone}"
       h
     end
@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def expired_jwts
-    whitelisted_jwts.where("exp <= ?", Time.now)
+    whitelisted_jwts.where('exp <= ?', Time.now)
   end
 
   def role_ids
